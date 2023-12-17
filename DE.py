@@ -16,11 +16,17 @@ for file in os.listdir()
 with open("thekey.key", "rb") as key:
         secretkey = key.read()
 
+secretphrase = "Owen"
 
+user_phrase = input("Enter the phrase\n")
 
-for file in files:
-	with open(file, "rb") as thefile:
-		contents = thefile.read()
-	contents_decrypted = Fernet(secretkey).decrypt(contents)
-	with open(file, "wb") as thefile:
-		thefile.write(contents_encrypted)
+if user_phrase == secretphrase:
+	for file in files:
+		with open(file, "rb") as thefile:
+			contents = thefile.read()
+		contents_decrypted = Fernet(secretkey).decrypt(contents)
+		with open(file, "wb") as thefile:
+			thefile.write(contents_encrypted)
+		print("I guess ill decrypt them")
+else:
+	print("Yeah right")
